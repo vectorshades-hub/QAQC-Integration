@@ -1,0 +1,387 @@
+/* Global styles - ported verbatim from templates/base.html */
+        :root {
+            --primary: #1a1f3a;
+            --accent: #e84c4c;
+            --accent2: #f5a623;
+            --surface: #f8f9fc;
+            --card-bg: #ffffff;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #3b82f6;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--surface);
+            color: var(--primary);
+            min-height: 100vh;
+        }
+
+        /* ── Top Bar ──────────────────────────────── */
+        .topbar {
+            background: var(--primary);
+            padding: 0 1.5rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1040;
+            box-shadow: 0 2px 12px rgba(26,31,58,0.18);
+        }
+
+        .topbar-brand {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .topbar-brand .logo-dot {
+            width: 10px; height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .user-badge {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 4px 14px;
+            color: #fff;
+            font-size: 0.82rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .role-badge {
+            font-size: 0.68rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .role-admin { background: #e84c4c; color: #fff; }
+        .role-management { background: #f5a623; color: #fff; }
+        .role-user { background: #3b82f6; color: #fff; }
+
+        .btn-menu {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-menu:hover { background: rgba(255,255,255,0.2); }
+
+        /* ── Offcanvas ────────────────────────────── */
+        .offcanvas {
+            width: 280px !important;
+            background: var(--primary);
+            border-right: none;
+        }
+
+        .offcanvas-header {
+            background: linear-gradient(135deg, #1a1f3a, #2d3561);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 1.2rem 1.5rem;
+        }
+
+        .offcanvas-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        .offcanvas-body { padding: 1rem 0; }
+
+        .nav-section-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(255,255,255,0.35);
+            padding: 1rem 1.5rem 0.4rem;
+        }
+
+        .nav-link-custom {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 1.5rem;
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-left: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .nav-link-custom:hover, .nav-link-custom.active {
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+            border-left-color: var(--accent);
+        }
+
+        .nav-link-custom i {
+            width: 20px;
+            text-align: center;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .nav-divider {
+            border-color: rgba(255,255,255,0.08);
+            margin: 0.5rem 1.5rem;
+        }
+
+        /* ── Main Content ─────────────────────────── */
+        .main-content {
+            padding: 2rem 1.5rem;
+            /* max-width: 1600px; */
+            margin: 0 auto;
+        }
+
+        .page-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .page-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .page-subtitle {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            margin: 2px 0 0;
+        }
+
+        /* ── Cards ───────────────────────────────── */
+        .card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            background: var(--card-bg);
+        }
+
+        .card-header {
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            border-radius: 12px 12px 0 0 !important;
+            padding: 1rem 1.25rem;
+            font-family: 'Syne', sans-serif;
+            font-weight: 600;
+        }
+
+        /* ── Stat Cards ──────────────────────────── */
+        .stat-card {
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -20px; right: -20px;
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .stat-card .stat-icon {
+            font-size: 2rem;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .stat-value {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.82rem;
+            opacity: 0.85;
+            margin-top: 4px;
+        }
+
+        /* ── Buttons ─────────────────────────────── */
+        .btn-primary {
+            background: var(--primary);
+            border-color: var(--primary);
+            font-weight: 500;
+            border-radius: 8px;
+        }
+        .btn-primary:hover { background: #2d3561; border-color: #2d3561; }
+
+        .btn-accent {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+            font-weight: 500;
+            border-radius: 8px;
+        }
+        .btn-accent:hover { background: #c93a3a; border-color: #c93a3a; color: #fff; }
+
+        /* ── Tables ──────────────────────────────── */
+        .table-modern {
+            font-size: 0.875rem;
+        }
+        .table-modern th {
+            font-family: 'Syne', sans-serif;
+            font-weight: 600;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            background: var(--surface);
+            border-bottom: 2px solid var(--border);
+            white-space: nowrap;
+        }
+        .table-modern td {
+            vertical-align: middle;
+            border-color: var(--border);
+        }
+
+        /* ── Status Badges ───────────────────────── */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .status-completed { background: #d1fae5; color: #065f46; }
+        .status-in-progress { background: #dbeafe; color: #1e40af; }
+        .status-leave { background: #fee2e2; color: #991b1b; }
+        .status-training { background: #fef3c7; color: #92400e; }
+        .status-pending { background: #f3e8ff; color: #6b21a8; }
+
+        /* ── Work Plan Grid ──────────────────────── */
+        .wp-cell-confirmed { background: #fff; }
+        .wp-cell-unconfirmed { background: #fce8e8; }
+
+        .wp-project-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin: 1px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 180px;
+        }
+
+        .wp-tag-confirmed {
+            background: #e8f4fd;
+            color: #1a3a5c;
+            border-left: 3px solid #1a1f3a;
+        }
+
+        .wp-tag-unconfirmed {
+            background: #fce8e8;
+            color: #991b1b;
+            border-left: 3px solid #e84c4c;
+        }
+
+        /* ── Forms ───────────────────────────────── */
+        .form-label {
+            font-weight: 500;
+            font-size: 0.875rem;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .form-control, .form-select {
+            border-radius: 8px;
+            border-color: var(--border);
+            font-size: 0.875rem;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26,31,58,0.1);
+        }
+
+        /* ── Alerts ──────────────────────────────── */
+        .alert {
+            border: none;
+            border-radius: 10px;
+            font-size: 0.875rem;
+        }
+
+        /* ── Responsive ──────────────────────────── */
+        @media (max-width: 768px) {
+            .main-content { padding: 1rem; }
+            .page-title { font-size: 1.3rem; }
+        }
+
+@keyframes popIn {
+    from { opacity:0; transform:scale(.82) translateY(20px); }
+    to   { opacity:1; transform:scale(1)   translateY(0); }
+}
+@keyframes cakeFloat {
+    0%,100% { transform:translateY(0) rotate(-3deg) scale(1); }
+    50%     { transform:translateY(-10px) rotate(3deg) scale(1.06); }
+}
+@keyframes shimmerText {
+    0%   { background-position:-200% center; }
+    100% { background-position:200% center; }
+}
+@keyframes balloonFloat {
+    0%,100% { transform:translateY(0) rotate(-8deg); }
+    50%     { transform:translateY(-14px) rotate(8deg); }
+}
+@keyframes namePop {
+    0%   { transform:scale(0) translateY(10px); opacity:0; }
+    70%  { transform:scale(1.08) translateY(-2px); opacity:1; }
+    100% { transform:scale(1) translateY(0); opacity:1; }
+}
+@keyframes sparkle {
+    0%,100% { opacity:0; transform:scale(0) rotate(0deg); }
+    50%     { opacity:1; transform:scale(1) rotate(180deg); }
+}
