@@ -7,6 +7,8 @@ const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:8001';
 const nextConfig: NextConfig = {
   // Allows several dev servers side by side (testing): NEXT_DIST_DIR=.next-alt next dev -p 3101
   distDir: process.env.NEXT_DIST_DIR || '.next',
+  // Dev server is opened via the LAN IP (not just localhost); without this Next.js blocks the HMR websocket.
+  allowedDevOrigins: ['*.*.*.*',...(process.env.ALLOWED_DEV_ORIGINS?.split(',') ?? [])],
   devIndicators: false, // hide the Next.js dev-mode "N" badge
   reactStrictMode: false, // pages fire real POST/DELETE side effects; avoid double-invoked effects in dev
   async rewrites() {
